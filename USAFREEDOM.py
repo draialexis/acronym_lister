@@ -31,16 +31,29 @@ def get_text_from_body(tables):
 
 filepath = argv[1]
 
-if len(argv) > 0 and ".docx" in filepath:
+if len(argv) > 1 and (filepath.endswith(".docx") or filepath.endswith(".txt")):
 
-    # get all relevant text from docx file
-    everything = docx2python(filepath)
+    body = ""
+    footnotes = ""
 
-    body = everything.body_runs
-    remove_empty_paragraphs(body)
+    if filepath.endswith(".docx"):
 
-    footnotes = everything.footnotes_runs
-    remove_empty_paragraphs(footnotes)
+        # get all relevant text from docx file
+        everything = docx2python(filepath)
+
+        body = everything.body_runs
+        remove_empty_paragraphs(body)
+
+        footnotes = everything.footnotes_runs
+        remove_empty_paragraphs(footnotes)
+
+    elif filepath.endswith(".txt"):
+
+        # get all relevant text from txt file
+        with open(filepath, 'r', encoding='utf-8') as f:
+            lines = [line.rstrip() for line in f]
+            for line in lines:
+                body += line
 
     out_acronyms_list = []
 
@@ -57,14 +70,15 @@ if len(argv) > 0 and ".docx" in filepath:
 
     out_acronyms_list.sort()
 
-    if len(argv) > 1 and argv[2] == "-t":
+    print("extracting...")
+    if len(argv) > 2 and argv[2] == "-t":
         print(out_acronyms_list)
-
     else:
         # rewrite the txt document with the new list
-        with open('acronyms.txt', 'w', encoding='utf-8') as f:
+        with open('acronyms.txt', 'w+', encoding='utf-8') as f:
             for acronym in out_acronyms_list:
                 f.write(acronym + '\n')
+        print("'acronyms.txt' has been created or updated to contain your acronyms")
 
 else:
-    print("ERROR: wrong format... a path to a 'docx' document was expected as argument 1")
+    print("ERROR: wrong format... a path to a 'docx' or '.txt' document was expected as argument 1")
