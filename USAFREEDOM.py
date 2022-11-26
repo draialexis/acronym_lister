@@ -1,3 +1,4 @@
+import os.path
 from sys import argv
 
 from docx2python import docx2python
@@ -5,15 +6,15 @@ from docx2python.iterators import enum_cells, enum_at_depth
 
 
 def extract_acronyms(in_acronyms_list, in_text):
-    acronym = ""
+    in_acronym = ""
     for character in in_text:
         if character.isupper():
-            acronym += character
+            in_acronym += character
         else:
-            if len(acronym) >= 2 and acronym not in in_acronyms_list:
-                in_acronyms_list.append(acronym)
+            if len(in_acronym) >= 2 and in_acronym not in in_acronyms_list:
+                in_acronyms_list.append(in_acronym)
             else:
-                acronym = ""
+                in_acronym = ""
 
 
 def remove_empty_paragraphs(tables):
@@ -31,6 +32,8 @@ def get_text_from_body(tables):
 filepath = argv[1]
 
 if ".docx" in filepath:
+
+    # get all relevant text from docx file
     everything = docx2python(filepath)
 
     body = everything.body_runs
@@ -41,16 +44,23 @@ if ".docx" in filepath:
 
     out_acronyms_list = []
 
-    print('extracting from body and footnotes...')
+    # get all older acronyms if any
+    if os.path.exists('acronyms.txt'):
+        with open('acronyms.txt', 'r', encoding='utf-8') as f:
+            lines = [line.rstrip() for line in f]
+            for acronym in lines:
+                out_acronyms_list.append(acronym)
+
+    # mix in acronyms from this body and footnotes
     extract_acronyms(out_acronyms_list, get_text_from_body(body))
     extract_acronyms(out_acronyms_list, get_text_from_body(footnotes))
-    print(out_acronyms_list)
 
-    print('sorting...')
     out_acronyms_list.sort()
-    print(out_acronyms_list)
 
-    # TODO: produce a txt file with the acronyms, one by line
+    # rewrite the txt document with the new list
+    with open('acronyms.txt', 'w', encoding='utf-8') as f:
+        for acronym in out_acronyms_list:
+            f.write(acronym + '\n')
 
 else:
-    print("ERROR: wrong format -- a 'docx' document was expected')")
+    print("ERROR: wrong format... a 'docx' document was expected")
