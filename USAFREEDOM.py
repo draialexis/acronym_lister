@@ -31,7 +31,7 @@ def get_text_from_body(tables):
 
 filepath = argv[1]
 
-if ".docx" in filepath:
+if len(argv) > 0 and ".docx" in filepath:
 
     # get all relevant text from docx file
     everything = docx2python(filepath)
@@ -57,10 +57,14 @@ if ".docx" in filepath:
 
     out_acronyms_list.sort()
 
-    # rewrite the txt document with the new list
-    with open('acronyms.txt', 'w', encoding='utf-8') as f:
-        for acronym in out_acronyms_list:
-            f.write(acronym + '\n')
+    if len(argv) > 1 and argv[2] == "-t":
+        print(out_acronyms_list)
+
+    else:
+        # rewrite the txt document with the new list
+        with open('acronyms.txt', 'w', encoding='utf-8') as f:
+            for acronym in out_acronyms_list:
+                f.write(acronym + '\n')
 
 else:
-    print("ERROR: wrong format... a 'docx' document was expected")
+    print("ERROR: wrong format... a path to a 'docx' document was expected as argument 1")

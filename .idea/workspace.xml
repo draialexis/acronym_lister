@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a9c1528-6f63-46ea-ab12-f017bfa5b983" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="5a9c1528-6f63-46ea-ab12-f017bfa5b983" name="Changes" comment="Implement txt file export">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/USAFREEDOM.py" beforeDir="false" afterPath="$PROJECT_DIR$/USAFREEDOM.py" afterDir="false" />
     </list>
@@ -48,7 +47,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/USAFREEDOM.py" />
-      <option name="PARAMETERS" value="&quot;C:\Users\draia\Desktop\Papy\un parcours scolaire semé d'embuches (1.0.2).docx&quot;" />
+      <option name="PARAMETERS" value="&quot;C:\Users\draia\Desktop\Papy\un parcours scolaire semé d'embuches (1.0.2).docx&quot; -t" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -66,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1668858743659</updated>
       <workItem from="1668858751503" duration="3524000" />
-      <workItem from="1669481665752" duration="9636000" />
+      <workItem from="1669481665752" duration="10336000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1669487592775</created>
@@ -82,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669487613194</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implement txt file export">
+      <created>1669491372313</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669491372313</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,9 +107,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Implement txt file export" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement txt file export" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MEMOIR$main.coverage" NAME="USAFREEDOM Coverage Results" MODIFIED="1669491241073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MEMOIR$main.coverage" NAME="USAFREEDOM Coverage Results" MODIFIED="1669491719341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

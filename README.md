@@ -1,4 +1,4 @@
-# Acronym lister (docx → python)
+# Acronym lister (`.docx` → `.txt`)
 
 Want to extract acronyms from a `.docx` file? This'll do it
 
@@ -8,7 +8,7 @@ You'll need `pip` and `python`
 
 First install `docx2python`:
 ```shell
-pip install docx2python
+$ pip install docx2python
 ```
 
 Then run it, passing as an argument the path to the file from which acronyms need to be extracted. 
@@ -16,9 +16,21 @@ Then run it, passing as an argument the path to the file from which acronyms nee
 From the root of the project, you can enter: 
 
 ```shell
-python .\USAFREEDOM.py "path\to\file.docx"
+$ python .\USAFREEDOM.py "path\to\file.docx"
 ```
 
-## In the future
+## Output
 
-You'll be able to get a `.txt` file as output, instead of a list printed in command line
+### → `.txt`
+
+By default, the output is put in a `.txt` file created at the root of this project.
+
+### → terminal
+
+If you prefer to have the acronyms printed in your terminal instead, you can type `-t` as a second argument:
+```shell
+$ python .\USAFREEDOM.py "path\to\file.docx" -t
+```
+```shell
+['BA', 'BASIC', 'BTS', 'CAB', 'CAP', 'CEA', 'CM', 'CP', 'DUT', 'GSP', 'IBM', 'MITRA', 'NASA', 'PAF', 'SEA', 'SUDRIA', 'SUPELEC', 'URSS']
+```
