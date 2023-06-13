@@ -2,6 +2,12 @@
 
 Want to extract all acronyms from a `.docx` or from a `.txt`file? This'll do it
 
++ [How to use](#how-to-use)
++ [Output](#output)
+  - [→ `.txt`](#-txt)
+  - [→ terminal](#-terminal)
++ [Shortcomings](#shortcomings)
+
 ## How to use
 
 You'll need `python`, and you'll also need to install `docx2python`, parts of which this script imports. For example, with `pip`:
