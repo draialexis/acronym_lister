@@ -1,20 +1,19 @@
+import re
 import os.path
 from sys import argv
 
 from docx2python import docx2python
 from docx2python.iterators import enum_cells, enum_at_depth
 
-
 def extract_acronyms(in_acronyms_list, in_text):
     in_acronym = ""
     for character in in_text:
-        if character.isupper():
+        if re.match("[A-Z]", character):
             in_acronym += character
         else:
             if len(in_acronym) >= 2 and in_acronym not in in_acronyms_list:
                 in_acronyms_list.append(in_acronym)
-            else:
-                in_acronym = ""
+            in_acronym = ""
 
 
 def remove_empty_paragraphs(tables):
